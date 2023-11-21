@@ -1,25 +1,17 @@
-import React, { useState, useContext } from "react";
+import { createContext, useContext, useState } from "react";
 
-const AppContext = React.createContext();
+const AppContext = createContext();
 
-const AppProvider = ({ children }) => {
-  const [active, setActive] = useState("Home");
+export const AppProvider = ({ children }) => {
+  const [active, setActive] = useState("");
 
   return (
-    <AppContext.Provider
-      value={{
-        active,
-        setActive,
-      }}
-    >
+    <AppContext.Provider value={{ active, setActive }}>
       {children}
     </AppContext.Provider>
   );
 };
 
-// custom hook
 export const useGlobalContext = () => {
   return useContext(AppContext);
 };
-
-export { AppContext, AppProvider };

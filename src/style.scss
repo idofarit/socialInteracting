@@ -252,6 +252,7 @@ $yellow: #f5bc04;
   display: inline-block;
   font-weight: 600;
   font-size: 15px !important;
+  text-transform: capitalize;
 }
 
 .short-description {
@@ -337,8 +338,12 @@ $yellow: #f5bc04;
 
 // Home
 .spinner {
-  width: 3rem;
-  height: 3rem;
+  width: 8rem;
+  height: 8rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 }
 
 // Tags
@@ -388,11 +393,11 @@ $yellow: #f5bc04;
 }
 
 .trending-img-size {
-  height: 326px;
+  height: 240px;
   overflow: hidden;
 }
 .trending-img-size > img {
-  height: 340px;
+  height: 240px;
   min-width: 100%;
 }
 
@@ -404,6 +409,7 @@ $yellow: #f5bc04;
   position: absolute;
   height: 100%;
   width: 100%;
+  // width: fit-content;
   top: 0;
   right: 0;
   background: -moz-linear-gradient(

@@ -25,25 +25,34 @@ export const storage = getStorage(app);
 
 export const FirebaseProvider = (props) => {
   // user active check
-  const [user, setUser] = useState(null);
+  // const [user, setUser] = useState(null);
 
-  useEffect(() => {
-    auth.onAuthStateChanged((user) => {
-      if (user) {
-        setUser(user);
-      } else {
-        setUser(null);
-      }
-      // console.log("user", user);
-    });
-  }, []);
+  // useEffect(() => {
+  //   auth.onAuthStateChanged((user) => {
+  //     if (user) {
+  //       setUser(user);
+  //     } else {
+  //       setUser(null);
+  //     }
+  //     // console.log("user", user);
+  //   });
+  // }, []);
   // user active check end
+
+  const handleDelete = async (id) => {
+    try {
+      setLoading(true);
+      await deleteDoc(doc(db, "blogs", id));
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <FirebaseContext.Provider
       value={{
-        user,
-        setUser,
+        handleDelete,
       }}
     >
       {props.children}

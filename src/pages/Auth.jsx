@@ -6,7 +6,6 @@ import {
 } from "firebase/auth";
 import { auth, db } from "../Firebase";
 import { useNavigate } from "react-router-dom";
-import { useGlobalContext } from "../Context";
 import { toast } from "react-toastify";
 import { addDoc, collection } from "firebase/firestore";
 
@@ -18,7 +17,7 @@ const initialState = {
 };
 
 const Auth = () => {
-  const { setActive } = useGlobalContext();
+  const [active, setActive] = useState("");
   const [state, setState] = useState(initialState);
   const [signUp, setSignUp] = useState(false);
   const navigate = useNavigate();
@@ -40,6 +39,7 @@ const Auth = () => {
         );
         toast.success("Login successful");
         setActive("Home");
+        localStorage.setItem("user", JSON.stringify(user));
       } else {
         return toast.error("All fields are mandatory");
       }

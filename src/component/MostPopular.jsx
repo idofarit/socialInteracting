@@ -1,5 +1,5 @@
 import moment from "moment/moment";
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const MostPopular = ({ blogs }) => {
@@ -10,7 +10,7 @@ const MostPopular = ({ blogs }) => {
       {blogs.map((item, index) => (
         <div
           className="row pb-3"
-          key={item.id}
+          key={index}
           style={{ cursor: "pointer" }}
           onClick={() => navigate(`/detail/${item.id}`)}
         >

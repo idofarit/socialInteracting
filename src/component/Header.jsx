@@ -4,6 +4,7 @@ import { auth } from "../Firebase";
 import userIcon from "../assets/user.png";
 import { signOut } from "firebase/auth";
 import { toast } from "react-toastify";
+import { Collapse } from "bootstrap";
 
 const Header = ({ setActive, active, user, setUser }) => {
   const navigate = useNavigate();
@@ -14,13 +15,6 @@ const Header = ({ setActive, active, user, setUser }) => {
       navigate("/auth");
     });
   };
-  // useEffect(() => {
-  //   if (active !== null) {
-  //     setActive(window.localStorage.getItem("active"));
-  //   } else {
-  //     setActive("Home");
-  //   }
-  // }, []);
 
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light  ">
@@ -39,19 +33,16 @@ const Header = ({ setActive, active, user, setUser }) => {
             >
               <span className="fa fa-bars"></span>
             </button>
-            <div className="collapse navbar-collapse">
-              <ul
-                className="navbar-nav  me-auto  mb-2  mb-lg-0 "
-                id="navbarSupportedContent"
-              >
+            <div
+              className="collapse navbar-collapse"
+              id="navbarSupportedContent"
+            >
+              <ul className="navbar-nav  me-auto  mb-2  mb-lg-0 ">
                 <Link to="/" style={{ textDecoration: "none" }}>
                   <li
                     className={`nav-item nav-link ${
                       active === "Home" ? "active" : ""
                     }`}
-                    // onClick={() =>
-                    //   setActive(window.localStorage.setItem("active", "Home"))
-                    // }
                     onClick={() => setActive("Home")}
                   >
                     Home
@@ -63,9 +54,6 @@ const Header = ({ setActive, active, user, setUser }) => {
                       active === "Create" ? "active" : ""
                     }`}
                     onClick={() => setActive("Create")}
-                    // onClick={() =>
-                    //   setActive(window.localStorage.setItem("active", "Create"))
-                    // }
                   >
                     Create
                   </li>
@@ -77,9 +65,6 @@ const Header = ({ setActive, active, user, setUser }) => {
                       active === "About" ? "active" : ""
                     }`}
                     onClick={() => setActive("About")}
-                    // onClick={() =>
-                    //   setActive(window.localStorage.setItem("active", "About"))
-                    // }
                   >
                     About
                   </li>

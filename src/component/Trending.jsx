@@ -14,6 +14,7 @@ const Trending = ({ trendBlogs }) => {
     autoplay: true,
     autoplayTimeout: 2000,
     autoplayHoverPause: true,
+    navContainer: "#navhere",
     responsive: {
       0: {
         items: 1,
@@ -58,6 +59,7 @@ const Trending = ({ trendBlogs }) => {
           </div>
         ))}
       </OwlCarousel>
+      <div id="navhere"></div>
     </>
   );
 };

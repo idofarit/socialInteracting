@@ -16,8 +16,7 @@ const initialState = {
   password: "",
 };
 
-const Auth = () => {
-  const [active, setActive] = useState("");
+const Auth = ({ setActive, setUser }) => {
   const [state, setState] = useState(initialState);
   const [signUp, setSignUp] = useState(false);
   const navigate = useNavigate();
@@ -38,6 +37,7 @@ const Auth = () => {
           password
         );
         toast.success("Login successful");
+        setUser(user);
         setActive("Home");
         localStorage.setItem("user", JSON.stringify(user));
       } else {

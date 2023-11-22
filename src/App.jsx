@@ -1,4 +1,5 @@
 import "./App.css";
+import "./mediaQueries.css";
 import { Route, RouterProvider, Routes } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Error from "./pages/Error";
@@ -10,6 +11,9 @@ import { auth } from "./Firebase";
 import ProtectedRoute from "./component/ProtectedRoute";
 import Home from "./component/Home";
 import Header from "./component/Header";
+import TagBlog from "./pages/TagBlog";
+import CategoryBlog from "./pages/CategoryBlog";
+import ScrollToTop from "./component/ScrollToTop";
 
 const App = () => {
   const [active, setActive] = useState("Home");
@@ -26,10 +30,27 @@ const App = () => {
   }, []);
   return (
     <>
-      <Header setActive={setActive} user={user} setUser={setUser} />
+      <Header
+        setActive={setActive}
+        active={active}
+        user={user}
+        setUser={setUser}
+      />
+      <ScrollToTop />
       <Routes>
-        <Route path="/" element={<Home user={user} />} />
-        <Route path="/detail/:id" element={<Details setActive={setActive} />} />
+        <Route
+          path="/"
+          element={<Home user={user} active={active} setActive={setActive} />}
+        />
+        <Route
+          path="/search"
+          element={<Home user={user} setActive={setActive} />}
+        />
+        <Route
+          path="/detail/:id"
+          errorElement={<Error />}
+          element={<Details setActive={setActive} />}
+        />
         <Route
           path="/create"
           element={
@@ -46,8 +67,13 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+        <Route path="/tag/:tag" element={<TagBlog />} />
+        <Route path="/category/:category" element={<CategoryBlog />} />
         <Route path="/about" element={<About />} />
-        <Route path="/auth" element={<Auth setActive={setActive} />} />
+        <Route
+          path="/auth"
+          element={<Auth setActive={setActive} setUser={setUser} />}
+        />
         <Route path="*" element={<Error />} />
       </Routes>
     </>

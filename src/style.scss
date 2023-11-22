@@ -90,8 +90,9 @@ $yellow: #f5bc04;
 }
 
 .navbar-nav {
-  flex-direction: row !important;
+  flex-direction: row;
   cursor: pointer;
+  text-align: center;
 }
 
 // form
@@ -351,6 +352,9 @@ $yellow: #f5bc04;
 .tags > a {
   text-decoration: none;
 }
+.tags > p {
+  cursor: pointer;
+}
 .tag {
   background: #f1f1f1;
   padding: 10px 15px;
@@ -511,6 +515,7 @@ $yellow: #f5bc04;
 
 .search-btn {
   float: left;
+  margin: 0.5rem;
 }
 
 // Category
@@ -650,7 +655,7 @@ $yellow: #f5bc04;
   font-size: 16px;
   font-weight: 600;
 }
-
+active
 // Pagination
 .btn_mange_pagging {
   background: #dadada;

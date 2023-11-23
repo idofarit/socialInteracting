@@ -32,7 +32,6 @@ const ScrollToTop = () => {
     <div className="scroll-to-top">
       {visible && (
         <span onClick={scrollToTop}>
-          {/* <i className="fa fa-arrow-up" /> */}
           <TbArrowBigUpLinesFilled
             style={{
               height: "45px",

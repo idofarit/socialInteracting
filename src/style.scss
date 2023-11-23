@@ -650,7 +650,12 @@ $yellow: #f5bc04;
   background-color: #74a044 !important;
   border-color: #74a044 !important;
 }
-
+.rounded-circle {
+  height: 50px;
+  width: 50px;
+  margin: auto;
+  display: flex;
+}
 .user_name {
   font-size: 16px;
   font-weight: 600;

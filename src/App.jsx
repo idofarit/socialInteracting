@@ -49,7 +49,7 @@ const App = () => {
         <Route
           path="/detail/:id"
           errorElement={<Error />}
-          element={<Details setActive={setActive} />}
+          element={<Details setActive={setActive} user={user} />}
         />
         <Route
           path="/create"

@@ -6,6 +6,7 @@ import {
   getDoc,
   getDocs,
   limit,
+  orderBy,
   query,
   updateDoc,
   where,
@@ -13,13 +14,14 @@ import {
 import { db } from "../Firebase";
 import Spinner from "../component/Spinner";
 import Tags from "../component/Tags";
-import MostPopular from "../component/MostPopular";
+import FeatureBlogs from "../component/FeatureBlogs";
 import RelatedBlogs from "../component/RelatedBlogs";
 import { isEmpty } from "lodash";
 import UserComments from "../component/UserComments";
 import CommentBox from "../component/CommentBox";
 import moment from "moment";
 import { toast } from "react-toastify";
+import Like from "../component/Like";
 
 const Details = ({ setActive, user }) => {
   const userId = user?.uid;
@@ -31,18 +33,17 @@ const Details = ({ setActive, user }) => {
   const [relatedBlogs, setRelatedBlogs] = useState([]);
   const [comments, setComments] = useState([]);
   const [userComment, setUserComment] = useState("");
+  let [likes, setLikes] = useState([]);
 
   useEffect(() => {
-    const getBlogData = async () => {
+    const getRecentBlogs = async () => {
       const blogRef = collection(db, "blogs");
-      const blogs = await getDocs(blogRef);
-      setBlogs(blogs.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
-      let tags = [];
-      blogs.docs.map((doc) => tags.push(...doc.get("tags")));
-      let uniqueTags = [...new Set(tags)];
-      setTags(uniqueTags);
+      const recentBlogs = query(blogRef, orderBy("postedOn", "desc"), limit(5));
+      const docSnapshot = await getDocs(recentBlogs);
+
+      setBlogs(docSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
     };
-    getBlogData();
+    getRecentBlogs();
   }, []);
 
   useEffect(() => {
@@ -55,13 +56,18 @@ const Details = ({ setActive, user }) => {
       const docRef = doc(db, "blogs", id);
       setLoading(true);
       const blogDetail = await getDoc(docRef);
+      const blogs = await getDocs(blogRef);
+      let tags = [];
+      blogs.docs.map((doc) => tags.push(...doc.get("tags")));
+      let uniqueTags = [...new Set(tags)];
+      setTags(uniqueTags);
       setBlog(blogDetail.data());
       const relatedBlogsQuery = query(
         blogRef,
         where("tags", "array-contains-any", blogDetail.data().tags, limit(3))
       );
       setComments(blogDetail.data().comments ? blogDetail.data().comments : []);
-
+      setLikes(blogDetail.data().likes ? blogDetail.data().likes : []);
       const relatedBlogSnapshot = await getDocs(relatedBlogsQuery);
       const relatedBlogs = [];
       relatedBlogSnapshot.forEach((doc) => {
@@ -94,6 +100,26 @@ const Details = ({ setActive, user }) => {
     setUserComment("");
   };
 
+  const handleLike = async () => {
+    if (userId) {
+      if (blog?.likes) {
+        const index = likes.findIndex((id) => id === userId);
+        if (index === -1) {
+          likes.push(userId);
+          setLikes([...new Set(likes)]);
+        } else {
+          likes = likes.filter((id) => id !== userId);
+          setLikes(likes);
+        }
+      }
+      await updateDoc(doc(db, "blogs", id), {
+        ...blog,
+        likes,
+        timestamp: moment().format("DD-MM-YYYY"),
+      });
+    }
+  };
+
   if (loading) {
     return <Spinner />;
   }
@@ -118,6 +144,7 @@ const Details = ({ setActive, user }) => {
                 <span className="meta-info text-start">
                   By <p className="author">{blog?.author}&nbsp;-</p>
                   {blog?.postedOn}
+                  <Like handleLike={handleLike} likes={likes} userId={userId} />
                 </span>
                 <p className="text-start">{blog?.description}</p>
                 <div className="text-start">
@@ -125,16 +152,18 @@ const Details = ({ setActive, user }) => {
                 </div>
                 <br />
                 <div className="custombox">
-                  <h4 className="small-title">{comments.length} Comment</h4>
-                  {isEmpty(comments) ? (
-                    <UserComments msg={"Be the first to comment"} />
-                  ) : (
-                    <>
-                      {comments?.map((comment) => (
-                        <UserComments {...comment} />
-                      ))}
-                    </>
-                  )}
+                  <div className="scroll">
+                    <h4 className="small-title">{comments.length} Comment</h4>
+                    {isEmpty(comments) ? (
+                      <UserComments msg={"Be the first to comment"} />
+                    ) : (
+                      <>
+                        {comments?.map((comment) => (
+                          <UserComments {...comment} />
+                        ))}
+                      </>
+                    )}
+                  </div>
                 </div>
                 <CommentBox
                   userId={userId}
@@ -147,7 +176,7 @@ const Details = ({ setActive, user }) => {
                 <div className="blog-heading text-start py-2 mb-4">Tags</div>
                 <Tags tags={tags} />
 
-                <MostPopular blogs={blogs} />
+                <FeatureBlogs title={"Recent Blogs"} blogs={blogs} />
               </div>
             </div>
             <RelatedBlogs id={id} blogs={relatedBlogs} />

@@ -15,7 +15,7 @@ import BlogSection from "./BlogSection";
 import Spinner from "./Spinner";
 import { toast } from "react-toastify";
 import Tags from "./Tags";
-import MostPopular from "./MostPopular";
+import FeatureBlogs from "./FeatureBlogs";
 import Trending from "./Trending";
 import Search from "./Search";
 import { orderBy, isEmpty, isNull } from "lodash";
@@ -237,7 +237,7 @@ const Home = ({ setActive, user, active }) => {
             <Search search={search} handleChange={handleChange} />
             <div className="blog-heading text-start py-2 mb-4">Tags</div>
             <Tags tags={tags} />
-            <MostPopular blogs={blogs} />
+            <FeatureBlogs title={"Most popular"} blogs={blogs} />
             <Category categoryCount={categoryCount} />
           </div>
         </div>

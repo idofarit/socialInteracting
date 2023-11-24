@@ -48,6 +48,16 @@ const Header = ({ setActive, active, user, setUser }) => {
                     Home
                   </li>
                 </Link>
+                <Link to="/blogs" style={{ textDecoration: "none" }}>
+                  <li
+                    className={`nav-item nav-link ${
+                      active === "Blogs" ? "active" : ""
+                    }`}
+                    onClick={() => setActive("Blogs")}
+                  >
+                    Blogs
+                  </li>
+                </Link>
                 <Link to="/create" style={{ textDecoration: "none" }}>
                   <li
                     className={`nav-item nav-link ${

@@ -2,11 +2,11 @@ import moment from "moment/moment";
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-const MostPopular = ({ blogs }) => {
+const FeatureBlogs = ({ blogs, title }) => {
   const navigate = useNavigate();
   return (
     <div>
-      <div className="blog-heading text-start pt-3 py-2 mb-4">Most Popular</div>
+      <div className="blog-heading text-start pt-3 py-2 mb-4">{title}</div>
       {blogs.map((item, index) => (
         <div
           className="row pb-3"
@@ -29,4 +29,4 @@ const MostPopular = ({ blogs }) => {
   );
 };
 
-export default MostPopular;
+export default FeatureBlogs;

@@ -68,8 +68,11 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-        <Route path="/tag/:tag" element={<TagBlog />} />
-        <Route path="/category/:category" element={<CategoryBlog />} />
+        <Route path="/tag/:tag" element={<TagBlog setActive={setActive} />} />
+        <Route
+          path="/category/:category"
+          element={<CategoryBlog setActive={setActive} />}
+        />
         <Route path="/about" element={<About />} />
         <Route path="/blogs" element={<Blogs setActive={setActive} />} />
         <Route

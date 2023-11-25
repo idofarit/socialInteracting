@@ -5,7 +5,7 @@ import BlogSection from "../component/BlogSection";
 import { db } from "../Firebase";
 import { Spinner } from "react-bootstrap";
 
-const CategoryBlog = () => {
+const CategoryBlog = ({ setActive }) => {
   const [catBlogs, setCatBlogs] = useState([]);
   const [loading, setLoading] = useState(false);
   const { category } = useParams();
@@ -25,6 +25,7 @@ const CategoryBlog = () => {
 
   useEffect(() => {
     getCatBlogs();
+    setActive(null);
   }, []);
 
   if (loading) {

@@ -80,7 +80,6 @@ const Details = ({ setActive, user }) => {
       console.log(error);
     }
   };
-  console.log(relatedBlogs, "relatedBlog");
 
   const handleComment = async (e) => {
     e.preventDefault();

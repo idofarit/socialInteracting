@@ -37,6 +37,7 @@ const ScrollToTop = () => {
               height: "45px",
               verticalAlign: "middle",
               display: "table-cell",
+              margin: "auto",
             }}
           />
         </span>

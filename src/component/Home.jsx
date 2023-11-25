@@ -29,6 +29,7 @@ function useQuery() {
 const Home = ({ setActive, user, active }) => {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
+  const [mostPopularBlogs, setMostPopularBlogs] = useState([]);
   const [blogs, setBlogs] = useState([]);
   const [tags, setTags] = useState([]);
   const [trendBlogs, setTrendBlogs] = useState([]);
@@ -143,6 +144,9 @@ const Home = ({ setActive, user, active }) => {
     const firstFour = query(blogRef, orderBy("title"), limit(4));
     const docSnapshot = await getDocs(firstFour);
     setBlogs(docSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
+    setMostPopularBlogs(
+      docSnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }))
+    );
     setLastVisible(docSnapshot.docs[docSnapshot.docs.length - 1]);
   };
 
@@ -169,7 +173,6 @@ const Home = ({ setActive, user, active }) => {
       count: counts[i],
     };
   });
-  console.log(categoryCount);
 
   const handleChange = (e) => {
     const { value } = e.target;
@@ -186,6 +189,7 @@ const Home = ({ setActive, user, active }) => {
         setLoading(true);
         await deleteDoc(doc(db, "blogs", id));
         toast.success("Deleted successfully");
+        getBlogs();
         setLoading(false);
       } catch (error) {
         console.log(error);
@@ -237,7 +241,7 @@ const Home = ({ setActive, user, active }) => {
             <Search search={search} handleChange={handleChange} />
             <div className="blog-heading text-start py-2 mb-4">Tags</div>
             <Tags tags={tags} />
-            <FeatureBlogs title={"Most popular"} blogs={blogs} />
+            <FeatureBlogs title={"Most popular"} blogs={mostPopularBlogs} />
             <Category categoryCount={categoryCount} />
           </div>
         </div>

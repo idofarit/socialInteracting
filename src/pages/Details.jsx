@@ -136,7 +136,7 @@ const Details = ({ setActive, user }) => {
             <h2>{blog?.title}</h2>
           </div>
         </div>
-        <div className="container-fluid pb-4 pt-4 padding blog-single-content">
+        <div className="container-fluid pb-4 pt-5 padding blog-single-content">
           <div className="container padding">
             <div className="row mx-0">
               <div className="col-md-8">

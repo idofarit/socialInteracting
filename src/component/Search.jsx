@@ -15,7 +15,7 @@ const Search = ({ search, handleChange }) => {
 
   return (
     <div>
-      <div className="blog-heading py-2 text-start py-2 mb-4">Search Here</div>
+      {/* <div className="blog-heading py-2 text-start py-2 mb-4">Search Here</div> */}
       <form action="" className="form-inline" onSubmit={handleSubmit}>
         <div className="col-12 py-3">
           <input

@@ -72,7 +72,7 @@ const Auth = ({ setActive, setUser }) => {
     navigate("/");
   };
   return (
-    <div className="container-fluid mb-4">
+    <div className="container-fluid pt-5 mb-4">
       <div className="col-12 text-center">
         <div className="text-center heading py-2">
           {!signUp ? "Sign-In" : "Sign-Up"}

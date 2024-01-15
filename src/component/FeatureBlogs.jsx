@@ -6,7 +6,7 @@ const FeatureBlogs = ({ blogs, title }) => {
   const navigate = useNavigate();
   return (
     <div>
-      <div className="blog-heading text-start pt-3 py-2 mb-4">{title}</div>
+      <div className="blog-heading text-start  py-2 mb-4">{title}</div>
       {blogs.map((item, index) => (
         <div
           className="row pb-3"

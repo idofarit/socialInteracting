@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import BlogSection from "../component/BlogSection";
 import { db } from "../Firebase";
-import { Spinner } from "react-bootstrap";
+import Spinner from "../component/Spinner";
 
 const CategoryBlog = ({ setActive }) => {
   const [catBlogs, setCatBlogs] = useState([]);
@@ -49,8 +49,8 @@ const CategoryBlog = ({ setActive }) => {
             Category : <strong>{category.toLocaleUpperCase()}</strong>
           </div>
           {catBlogs?.map((item) => (
-            <div className="col-md-6 ">
-              <BlogSection key={item.id} {...item} />
+            <div className="col-md-6 " key={item.id}>
+              <BlogSection {...item} />
             </div>
           ))}
         </div>

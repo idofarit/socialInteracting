@@ -19,15 +19,15 @@ const Trending = ({ trendBlogs }) => {
       0: {
         items: 1,
       },
-      400: {
-        items: 2,
-      },
-      600: {
-        items: 3,
-      },
-      1000: {
-        items: 4,
-      },
+      // 400: {
+      //   items: 2,
+      // },
+      // 600: {
+      //   items: 3,
+      // },
+      // 1000: {
+      //   items: 4,
+      // },
     },
   };
   return (
@@ -35,30 +35,32 @@ const Trending = ({ trendBlogs }) => {
       <div>
         <div className="blog-heading text-start py-2 mb-4">Trending</div>
       </div>
-      <OwlCarousel {...options} className="owl-theme">
-        {trendBlogs.map((item, index) => (
-          <div className="item px-2" key={index}>
-            <Link to={`/detail/${item.id}`}>
-              <div className="trending-img-position">
-                <div className="trending-img-size">
-                  <img
-                    src={item.imgUrl}
-                    className="trending-img-relative"
-                    alt={item.title}
-                  />
-                </div>
-                <div className="trending-img-absolute"></div>
-                <div className="trending-img-absolute-1 text-center">
-                  <span className="text-white">{item.title}</span>
-                  <div className="trending-meta-info">
-                    {item.author} - {moment().format("dddd")}
+      <div className="trend">
+        <OwlCarousel {...options} className="owl-theme trend ">
+          {trendBlogs.map((item, index) => (
+            <div className="item px-2 " key={index}>
+              <Link to={`/detail/${item.id}`}>
+                <div className="trending-img-position">
+                  <div className="trending-img-size">
+                    <img
+                      src={item.imgUrl}
+                      className="trending-img-relative"
+                      alt={item.title}
+                    />
+                  </div>
+                  <div className="trending-img-absolute"></div>
+                  <div className="trending-img-absolute-1 text-center">
+                    <span className="text-white">{item.title}</span>
+                    <div className="trending-meta-info">
+                      {item.author} - {moment().format("dddd")}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
-          </div>
-        ))}
-      </OwlCarousel>
+              </Link>
+            </div>
+          ))}
+        </OwlCarousel>
+      </div>
       <div id="navhere"></div>
     </>
   );

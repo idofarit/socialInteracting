@@ -101,8 +101,8 @@ const Blogs = ({ setActive }) => {
 
   return (
     <div>
-      <div className="container">
-        <div className="row">
+      <div className="container pt-5">
+        <div className="row mt-4">
           <div className="blog-heading text-start py-2 mb-4">Daily blogs</div>
           {blogs?.map((blog) => (
             <div className="col-md-6 " key={blog.id}>

@@ -1,21 +1,8 @@
 body {
   margin: 0;
   padding: 0;
+  background: #383636;
 }
 li {
   text-decoration: none;
-}
-#navhere {
-  display: flex;
-  margin: auto;
-  justify-content: center;
-  margin-top: 0.5rem;
-}
-#navhere button {
-  background: transparent;
-  margin: 0.3rem;
-  padding: 0.1rem 0.5rem;
-  background-color: rgb(175, 171, 171);
-  color: white;
-  border: none;
 }

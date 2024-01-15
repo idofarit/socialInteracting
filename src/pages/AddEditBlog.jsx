@@ -144,8 +144,8 @@ const AddEditBlog = ({ user, setActive }) => {
 
   return (
     <>
-      <div className="container-fluid mb-4">
-        <div className="container">
+      <div className="container-fluid mb-4   ">
+        <div className="container pt-5  ">
           <div className="col-12">
             <div className="text-center heading py-2">
               {id ? "Update Your Blog" : "Create Blog"}
@@ -176,24 +176,30 @@ const AddEditBlog = ({ user, setActive }) => {
                   <div className="form-check-inline mx-2">
                     <input
                       type="radio"
-                      className="form-check-input"
+                      className="form-check-input "
                       name="radioOption"
                       value="yes"
                       checked={trending === "yes"}
                       onChange={handleTrending}
                     />
-                    <label htmlFor="radioOption" className="form-check-label">
+                    <label
+                      htmlFor="radioOption"
+                      className="form-check-label check"
+                    >
                       &nbsp; Yes&nbsp;
                     </label>
                     <input
                       type="radio"
-                      className="form-check-input"
+                      className="form-check-input "
                       name="radioOption"
                       value="no"
                       checked={trending === "no"}
                       onChange={handleTrending}
                     />
-                    <label htmlFor="radioOption" className="form-check-label">
+                    <label
+                      htmlFor="radioOption"
+                      className="form-check-label check"
+                    >
                       &nbsp; No
                     </label>
                   </div>

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import BlogSection from "../component/BlogSection";
 import { db } from "../Firebase";
-import { Spinner } from "react-bootstrap";
+import Spinner from "../component/Spinner";
 
 const TagBlog = ({ setActive }) => {
   const [tagBlogs, setTagBlogs] = useState([]);
@@ -26,7 +26,6 @@ const TagBlog = ({ setActive }) => {
   useEffect(() => {
     getTagBlogs();
     setActive(null);
-    //eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   if (loading) {

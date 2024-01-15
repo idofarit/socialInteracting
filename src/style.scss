@@ -1,3 +1,5 @@
+@import "../mixins.scss";
+
 $yellow: #f5bc04;
 
 @mixin border-radius($radius) {
@@ -58,7 +60,7 @@ $yellow: #f5bc04;
   @include clip-path(polygon(100% 0, 100% 85%, 14% 85%, 0 100%, 0% 60%, 0 0));
 }
 .navbar-light .navbar-nav .nav-link {
-  color: #222 !important;
+  color: #97d4e0 !important;
   padding-top: 12px !important;
   padding-bottom: 15px !important;
   padding-left: 20px !important;
@@ -98,7 +100,7 @@ $yellow: #f5bc04;
 // form
 .heading {
   font-size: 20px;
-  color: #424040;
+  color: #d6cccc;
   font-weight: 600;
 }
 
@@ -109,9 +111,21 @@ $yellow: #f5bc04;
   letter-spacing: 1px !important;
 }
 
+.form-control {
+  background-color: #898686;
+  border: none;
+}
+
 .form-control:focus {
-  box-shadow: none !important;
-  border-color: $yellow !important;
+  border: none;
+  color: whitesmoke;
+  background-color: #7d7878;
+  box-shadow: rgba(178, 178, 205, 0.25) 0px 30px 60px -12px inset,
+    rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+}
+
+.check {
+  color: #d2c7ce;
 }
 
 .btn-sign-in {
@@ -134,6 +148,14 @@ $yellow: #f5bc04;
   border-color: $yellow !important;
 }
 
+.description {
+  background-color: #242424;
+  border: none;
+  box-shadow: 25px 25px 75px rgba(0, 0, 0, 0.25),
+    10px 10px 70px rgba(0, 0, 0, 0.25), inset -5px -5px 15px rgba(0, 0, 0, 0.5),
+    inset 5px 5px 15px rgba(0, 0, 0, 0.5);
+}
+
 .description-box {
   @include border-radius(0!important);
   height: 150px;
@@ -150,7 +172,9 @@ $yellow: #f5bc04;
 }
 
 .react-tag-input {
+  background-color: #8b8888;
   height: 45px !important;
+  border: none;
 }
 
 .react-tag-input:focus {
@@ -161,7 +185,9 @@ $yellow: #f5bc04;
   width: 100%;
   border-radius: 4px;
   height: 45px;
-  color: #806a78;
+  color: #343333;
+  background-color: #898686;
+  border: none;
 }
 
 .catg-dropdown:focus {
@@ -169,9 +195,13 @@ $yellow: #f5bc04;
   border-color: $yellow;
 }
 
+.trend {
+  box-shadow: 0 -8px 8px rgba(255, 255, 255, 0.1);
+}
+
 .trending {
   float: left;
-  color: #806a78;
+  color: #d2c7ce;
   font-size: 18px;
   margin: auto;
 }
@@ -180,7 +210,8 @@ $yellow: #f5bc04;
 
 .blog-heading {
   font-size: 24px;
-  color: #222;
+  color: #ea6146;
+  font-weight: 600;
   border-bottom: 1px solid #777;
 }
 
@@ -190,7 +221,7 @@ $yellow: #f5bc04;
   overflow: hidden;
   position: relative;
   top: 0;
-  @include box-shadow(0, 2px, 3px, 1px, rgba(0, 0, 0, 0));
+  @include box-shadow(0, 2px, 3px, 1px, rgba(237, 237, 237, 0));
   @include transition(all 0.5s);
 }
 
@@ -200,13 +231,13 @@ $yellow: #f5bc04;
 }
 
 .hover-blogs-img:hover > .blogs-img {
-  top: -7px;
-  @include box-shadow(0, 2px, 3px, 1px, rgba(0, 0, 0, 0.3));
+  top: -2px;
+  @include box-shadow(0, 2px, 3px, 1px, rgba(248, 241, 241, 0.3));
 }
 
 .title {
   font-size: 17px;
-  color: #222 !important;
+  color: #b7a7a7 !important;
   font-weight: 800;
   font-family: "Poppins";
   text-decoration: none;
@@ -237,15 +268,18 @@ $yellow: #f5bc04;
 
 .meta-info {
   font-size: 15px;
-  color: #222;
+  color: #dbd6d6;
   display: block;
   font-family: "Poppins";
   text-decoration: none;
 }
+.blog-single-content {
+  background-color: #242424;
+}
 
 .blog-single-content .meta-info {
   margin-top: 8px;
-  border-bottom: 1px solid #777;
+  border-bottom: 1px solid #dad7d7;
   margin-bottom: 15px;
 }
 
@@ -258,11 +292,13 @@ $yellow: #f5bc04;
 
 .short-description {
   font-size: 14px;
-  color: #777;
+  color: #d4d6d8;
+  width: 100%;
+  overflow: hidden;
 }
 
 .btn-read {
-  background: #544e66 !important;
+  background: #252527 !important;
   @include border-radius(0!important);
   color: #fff !important;
   padding: 5px 10px !important;
@@ -293,7 +329,7 @@ $yellow: #f5bc04;
     left: 0;
     right: 0;
     z-index: 10;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(255, 255, 255, 0.4);
   }
 
   .blog-title {
@@ -329,11 +365,30 @@ $yellow: #f5bc04;
 
 .blog-single-content {
   z-index: 999;
-  background: white;
+  background: #242424;
 
   p,
   ul li {
     font-size: 1.05rem;
+  }
+}
+
+.profile-logo {
+  border: 2px solid rgb(216, 151, 151);
+  box-shadow: 10px 5px rgb(230, 114, 91);
+  padding: 5px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  img {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-top: 12px;
+  }
+  span {
+    font-size: smaller;
   }
 }
 
@@ -353,17 +408,25 @@ $yellow: #f5bc04;
   text-decoration: none;
 }
 .tags > p {
+  font-size: 0.6rem;
   cursor: pointer;
+  @include md {
+    font-size: 0.5rem;
+  }
 }
 .tag {
-  background: #f1f1f1;
-  padding: 10px 15px;
-  color: #222;
+  background: #a1a1a1;
+  padding: 5px 8px;
+  border-radius: 10px;
+  color: #d7c8c8;
   @include transition(0.5s);
   margin-right: 8px;
   margin-top: 5px;
   margin-bottom: 5px;
   display: inline-block;
+  @include md {
+    padding: 3px 5px;
+  }
 }
 .tag:hover,
 .tag:focus {
@@ -381,11 +444,91 @@ $yellow: #f5bc04;
 
 .most-popular-font {
   font-weight: 500;
+  color: #999;
 }
 
 .most-popular-font-meta {
   font-size: 12px;
-  color: #777;
+  color: #dbd6d6;
+}
+
+// hero
+
+.hero-container {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  height: 17.5rem;
+  background: #222222;
+  border-radius: 10px;
+  box-shadow: 0 -19px 19px 2px rgba(252, 252, 252, 0.1);
+  @include md {
+    height: 23rem;
+  }
+}
+
+.hero-card {
+  margin-top: 2rem;
+  .hero-line {
+    text-transform: uppercase;
+    background: linear-gradient(to left, #e77823 45%, #e71b81 65%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    display: flex;
+    font-family: "Times New Roman", Times, serif;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+
+    @include md {
+      font-size: 1.5rem;
+    }
+  }
+  @include md {
+    margin-top: 3rem;
+  }
+}
+
+.opacity-layer {
+  width: 100%;
+  height: 110px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    #383636 79.17%
+  );
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+//
+
+// hero-search category
+
+.hero-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  @include md {
+    flex-direction: column-reverse;
+  }
+}
+.hero-tag {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+
+  span {
+    font-size: 0.6rem;
+    padding: 0.5rem;
+    font-weight: 600;
+    color: #ec9109;
+  }
 }
 
 // Trending
@@ -443,7 +586,7 @@ $yellow: #f5bc04;
 }
 
 .trending-meta-info {
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(244, 237, 237, 0.7);
   font-size: 13px;
 }
 
@@ -510,15 +653,43 @@ $yellow: #f5bc04;
 .form-inline {
   display: flex;
   align-items: center;
-  width: fit-content;
+
+  width: 50vw;
+  margin: auto;
+  @include md {
+    width: 60vw;
+  }
 }
 
 .search-btn {
   float: left;
   margin: 0.5rem;
+  transform: translateX(-55px);
+  color: #000;
+  background: transparent;
+  border: none;
+  @include md {
+    height: 2.3rem;
+    margin: 1rem;
+  }
 }
 
 // Category
+
+.category-container {
+  .drp {
+    background: #de7525;
+  }
+  a {
+    color: #eedcdc;
+    border: none;
+  }
+  padding: 5px;
+  @include md {
+    margin: auto;
+  }
+}
+
 .widget {
   position: relative;
   display: block;
@@ -529,8 +700,16 @@ $yellow: #f5bc04;
   margin: 0;
   padding: 0;
 }
+.link-widget {
+  display: flex;
+  justify-content: center;
+}
+.link-widget ul {
+  display: flex;
+  justify-content: space-around;
+}
 .link-widget li {
-  padding: 1.2rem 0.8rem 1.7rem;
+  padding: 1.2rem 1.8rem 1.7rem;
   text-transform: capitalize;
   line-height: 1;
   font-weight: 500;
@@ -553,7 +732,7 @@ $yellow: #f5bc04;
   position: fixed;
   bottom: 20px;
   right: 20px;
-  z-index: 999;
+  z-index: 99999;
   @include transition(0.5s);
   cursor: pointer;
   z-index: 1;
@@ -561,7 +740,7 @@ $yellow: #f5bc04;
     width: 50px;
     height: 50px;
     display: table;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(225, 223, 223, 0.5);
     color: white;
     text-align: center;
     @include border-radius(4px);
@@ -623,6 +802,7 @@ $yellow: #f5bc04;
   -webkit-flex: 1 1 0%;
   -ms-flex: 1 1 0%;
   flex: 1 1 0%;
+  color: rgb(199, 193, 193);
 }
 
 .media-body .btn-primary {
@@ -678,6 +858,10 @@ $yellow: #f5bc04;
   color: #fff !important;
   font-weight: 800;
 }
+.btn_mange_pagging:disabled {
+  cursor: not-allowed;
+  opacity: 0.1;
+}
 
 .btn_pagging {
   background: #dadada !important;
@@ -700,4 +884,125 @@ $yellow: #f5bc04;
   overflow-x: hidden;
   overflow-y: auto;
   text-align: justify;
+}
+
+// Modal
+
+.login-popup {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1099;
+  background-color: rgba(0, 0, 0, 0.6);
+  visibility: hidden;
+  opacity: 0;
+  transition: all 1s ease;
+  &__show {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.login-popup .box {
+  background-color: #ffffff;
+  width: 750px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-wrap: wrap;
+  opacity: 0;
+  margin-left: 50px;
+  transition: all 1s ease;
+}
+.login-popup.show .box {
+  opacity: 1;
+  margin-left: 0;
+}
+.login-popup .box .img-area {
+  flex: 0 0 50%;
+  max-width: 50%;
+  position: relative;
+  overflow: hidden;
+  padding: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login-popup .box .img-area h1 {
+  font-size: 30px;
+}
+.login-popup .box .img-area .img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("img/bg.jpg");
+  background-size: cover;
+  background-position: center;
+  animation: zoomInOut 7s linear infinite;
+  z-index: -1;
+}
+@keyframes zoomInOut {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+.login-popup .box .form {
+  flex: 0 0 50%;
+  max-width: 50%;
+  padding: 40px 30px;
+}
+
+.login-popup .box .form h1 {
+  color: #000000;
+  font-size: 30px;
+  margin: 0 0 30px;
+}
+.login-popup .box .form .form-control {
+  height: 45px;
+  margin-bottom: 30px;
+  width: 100%;
+  border: none;
+  border-bottom: 1px solid #cccccc;
+  font-size: 15px;
+  color: #000000;
+}
+.login-popup .box .form .form-control:focus {
+  outline: none;
+}
+.login-popup .box .form label {
+  font-size: 15px;
+  color: #555555;
+}
+.login-popup .box .form .btn {
+  width: 100%;
+  background-color: #e91e63;
+  margin-top: 40px;
+  height: 45px;
+  border: none;
+  border-radius: 25px;
+  font-size: 15px;
+  text-transform: uppercase;
+  color: #ffffff;
+  cursor: pointer;
+}
+.login-popup .box .form .btn:focus {
+  outline: none;
+}
+
+.login-popup .box .form .close {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  font-size: 30px;
+  cursor: pointer;
 }

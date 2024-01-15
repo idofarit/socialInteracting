@@ -26,7 +26,7 @@ const BlogSection = ({
             </div>
           </div>
         </div>
-        <div className="col-md-7 ">
+        <div className="col-md-7 pt-3">
           <div className="text-start">
             <h6 className="category catg-color">{category}</h6>
             <span className="title py-2">{title}</span>

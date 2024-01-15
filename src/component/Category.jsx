@@ -3,13 +3,23 @@ import { Link } from "react-router-dom";
 
 const Category = ({ categoryCount }) => {
   return (
-    <div className="widget">
-      <div className="blog-heading text-start py-2 mb-4">Category</div>
-      <div className="link-widget">
-        <ul>
+    <div className="category-container">
+      <div className="dropdown">
+        <a
+          href="#"
+          className="btn btn-secondary dropdown-toggle drp"
+          role="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Categories
+        </a>
+
+        <ul className="dropdown-menu ">
           {categoryCount?.map((item, index) => (
             <li key={index}>
               <Link
+                className="dropdown-item"
                 to={`/category/${item.category}`}
                 style={{
                   textDecoration: "none",

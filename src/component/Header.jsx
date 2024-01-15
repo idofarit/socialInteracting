@@ -85,20 +85,12 @@ const Header = ({ setActive, active, user, setUser }) => {
                   {user ? (
                     <>
                       <div className="profile-logo">
-                        <img
-                          style={{
-                            width: "30px",
-                            height: "30px",
-                            borderRadius: "50%",
-                            marginTop: "12px",
-                          }}
-                          src={userIcon}
-                          alt="userLogo"
-                        />
+                        <img src={userIcon} alt="userLogo" />
                       </div>
                       <p style={{ marginTop: "12px", marginLeft: "8px" }}>
                         {user?.displayName}
                       </p>
+
                       <li className="nav-item nav-link" onClick={handleLogOut}>
                         LogOut
                       </li>

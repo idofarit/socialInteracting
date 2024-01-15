@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+
 import {
   collection,
   deleteDoc,
@@ -21,6 +22,7 @@ import Search from "./Search";
 import { orderBy, isEmpty, isNull } from "lodash";
 import { useLocation } from "react-router-dom";
 import Category from "./Category";
+import { createPortal } from "react-dom";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -129,7 +131,7 @@ const Home = ({ setActive, user, active }) => {
 
     const combinedSearchBlogs = searchTitleBlogs.concat(searchTagBlogs);
     setBlogs(combinedSearchBlogs);
-    setIsContentEmpty(true);
+    setIsContentEmpty(false);
     setActive("");
   };
 
@@ -175,10 +177,10 @@ const Home = ({ setActive, user, active }) => {
   });
 
   const handleChange = (e) => {
-    const { value } = e.target;
+    const value = e.target.value;
     if (isEmpty(value)) {
       getBlogs();
-      setIsContentEmpty(false);
+      setIsContentEmpty(true);
     }
     setSearch(value);
   };
@@ -203,11 +205,29 @@ const Home = ({ setActive, user, active }) => {
 
   return (
     <div className="container-fluid pb-4 pt-4 padding">
-      <div className="container padding">
-        <div className="row mx-0">
-          <Trending trendBlogs={trendBlogs} />
+      <div className="container padding   ">
+        <div className="row mt-5">
+          <div className="hero-container">
+            <div className="hero-card">
+              <div className="hero-line">Explore With Us!</div>
+              <div className="hero-search">
+                <Search search={search} handleChange={handleChange} />
+                <Category categoryCount={categoryCount} />
+                <div className="overlay"></div>
+              </div>
+              <div className="hero-tag">
+                <span>use these tags for search</span>
+                <Tags tags={tags} />
+                <div className="opacity-layer"></div>
+              </div>
+            </div>
+          </div>
 
-          <div className="col-md-8 ">
+          {/* Modal start */}
+
+          {/* Modal ends */}
+
+          <div className="col-md-9">
             <div className="blog-heading text-start py-2 mb-4">Daily Blogs</div>
 
             {blogs.length === 0 && location.pathname !== "/" && (
@@ -237,12 +257,46 @@ const Home = ({ setActive, user, active }) => {
               </button>
             )}
           </div>
-          <div className="col-md-3 ">
-            <Search search={search} handleChange={handleChange} />
-            <div className="blog-heading text-start py-2 mb-4">Tags</div>
-            <Tags tags={tags} />
+
+          <div className="col-md-3">
+            <Trending trendBlogs={trendBlogs} />
             <FeatureBlogs title={"Most popular"} blogs={mostPopularBlogs} />
-            <Category categoryCount={categoryCount} />
+          </div>
+
+          {/* <div className="col-md-9 ">
+            <div className="blog-heading text-start py-2 mb-4">Daily Blogs</div>
+
+            {blogs.length === 0 && location.pathname !== "/" && (
+              <>
+                <h4>
+                  No blogs matched your search keyword:{" "}
+                  <strong>{searchQuery}</strong>
+                </h4>
+              </>
+            )}
+
+            {blogs?.map((blog) => (
+              <BlogSection
+                key={blog.id}
+                {...blog}
+                user={user}
+                handleDelete={handleDelete}
+              />
+            ))}
+
+            {!isContentEmpty && (
+              <button
+                className="btn btn-primary m-auto d-flex"
+                onClick={fetchMore}
+              >
+                Load more
+              </button>
+            )}
+          </div> */}
+          <div className="col-md-3 ">
+            {/* <Search search={search} handleChange={handleChange} />
+            <Tags tags={tags} /> */}
+            {/* <FeatureBlogs title={"Most popular"} blogs={mostPopularBlogs} /> */}
           </div>
         </div>
       </div>

@@ -42,8 +42,8 @@ const CategoryBlog = ({ setActive }) => {
   }
 
   return (
-    <div>
-      <div className="container">
+    <div className="pt-3">
+      <div className="container pt-5 ">
         <div className="row">
           <div className="blog-heading text-center py-2 mb-4">
             Category : <strong>{category.toLocaleUpperCase()}</strong>

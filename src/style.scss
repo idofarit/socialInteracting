@@ -1,5 +1,19 @@
 @import "../mixins.scss";
 
+:root {
+  --nav-font: "Yatra One", system-ui;
+
+  --hero-font: "Protest Revolution", sans-serif;
+
+  --heading-font: "Rubik Doodle Shadow", system-ui;
+
+  --white: #cfd4dc;
+  --black2: #041226;
+  --black3: #020c1b;
+  --black-lighter: #1c4b91;
+  --black-light: #173d77;
+}
+
 $yellow: #f5bc04;
 
 @mixin border-radius($radius) {
@@ -210,9 +224,10 @@ $yellow: #f5bc04;
 
 .blog-heading {
   font-size: 24px;
-  color: #ea6146;
+  color: var(--white);
   font-weight: 600;
   border-bottom: 1px solid #777;
+  font-family: var(--heading-font);
 }
 
 .blogs-img {
@@ -458,12 +473,29 @@ $yellow: #f5bc04;
   position: relative;
   justify-content: center;
   align-items: center;
-  height: 17.5rem;
+  height: 27.5rem;
   background: #222222;
   border-radius: 10px;
   box-shadow: 0 -19px 19px 2px rgba(252, 252, 252, 0.1);
+  @include xsm {
+    height: 29rem;
+  }
+}
+
+.blog-img {
+  position: absolute;
+  width: 50vw;
+  height: 17rem;
+  left: 20%;
+  top: 10rem;
   @include md {
-    height: 23rem;
+    width: 70vw;
+    left: 12%;
+  }
+  @include xsm {
+    width: 80vw;
+    left: 9%;
+    top: 46%;
   }
 }
 
@@ -475,11 +507,11 @@ $yellow: #f5bc04;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     display: flex;
-    font-family: "Times New Roman", Times, serif;
+    font-family: var(--hero-font);
     justify-content: center;
     align-items: center;
     font-size: 2rem;
-    font-weight: 600;
+    font-weight: 900;
     letter-spacing: 2px;
 
     @include md {

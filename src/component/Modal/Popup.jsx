@@ -5,7 +5,6 @@ import "./Popup.scss";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { auth } from "../../Firebase";
-import { IoMdClose } from "react-icons/io";
 
 const Popup = ({ user }) => {
   const navigate = useNavigate();
@@ -44,18 +43,6 @@ const Popup = ({ user }) => {
               &times;
             </button>
             <p>Join Us by Signing Up</p>
-
-            {/* <div className="google-btn" onClick={handleGoogleSignIn}>
-              <div className="google-icon-wrapper">
-                <img
-                  className="google-icon"
-                  src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
-                />
-              </div>
-              <p className="btn-text">
-                <b>Sign in with google</b>
-              </p>
-            </div> */}
 
             <div className="google-signup-container">
               <img className="google-icon" src={gimg} />

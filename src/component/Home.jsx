@@ -22,7 +22,7 @@ import Search from "./Search";
 import { orderBy, isEmpty, isNull } from "lodash";
 import { useLocation } from "react-router-dom";
 import Category from "./Category";
-import { createPortal } from "react-dom";
+import img from "../assets/blog.png";
 
 function useQuery() {
   return new URLSearchParams(useLocation().search);
@@ -209,6 +209,7 @@ const Home = ({ setActive, user, active }) => {
         <div className="row mt-5">
           <div className="hero-container">
             <div className="hero-card">
+              <img src={img} alt="" className="blog-img" />
               <div className="hero-line">Explore With Us!</div>
               <div className="hero-search">
                 <Search search={search} handleChange={handleChange} />

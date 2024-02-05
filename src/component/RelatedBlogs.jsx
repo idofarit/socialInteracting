@@ -14,8 +14,8 @@ const RelatedBlogs = ({ blogs, id }) => {
           )}
           {blogs
             ?.filter((blog) => blog.id !== id)
-            .map((item) => (
-              <Card {...item} />
+            .map((item, index) => (
+              <Card key={index} {...item} />
             ))}
         </div>
       </div>

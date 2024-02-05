@@ -8,12 +8,13 @@ import { useNavigate } from "react-router-dom";
 const FirebaseContext = createContext(null);
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCO3EVY7PjsAAwWvUZrobD6Se9GWWujPYw",
-  authDomain: "socialinteracting-d638a.firebaseapp.com",
-  projectId: "socialinteracting-d638a",
-  storageBucket: "socialinteracting-d638a.appspot.com",
-  messagingSenderId: "879164210561",
-  appId: "1:879164210561:web:073cd34d359e07676bfc80",
+  apiKey: "AIzaSyDhnern7ty9lVE8hn3OSXOIZlMPGWW4a1I",
+  authDomain: "blog-interacting.firebaseapp.com",
+  projectId: "blog-interacting",
+  storageBucket: "blog-interacting.appspot.com",
+  messagingSenderId: "372138470652",
+  appId: "1:372138470652:web:5c459b6a28eb5b18313b79",
+  measurementId: "G-NQJ8CL5PPF",
 };
 
 export const useFirebase = () => useContext(FirebaseContext);

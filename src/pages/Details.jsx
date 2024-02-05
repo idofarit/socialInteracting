@@ -157,8 +157,8 @@ const Details = ({ setActive, user }) => {
                       <UserComments msg={"Be the first to comment"} />
                     ) : (
                       <>
-                        {comments?.map((comment) => (
-                          <UserComments {...comment} />
+                        {comments?.map((comment, index) => (
+                          <UserComments key={index} {...comment} />
                         ))}
                       </>
                     )}

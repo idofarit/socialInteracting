@@ -45,7 +45,7 @@ const TagBlog = ({ setActive }) => {
     <div>
       <div className="container">
         <div className="row">
-          <div className="blog-heading text-center py-2 mb-4">
+          <div className="blog-heading text-center py-2 mb-4 mt-5">
             Tag : <strong>{tag.toLocaleUpperCase()}</strong>
           </div>
           {tagBlogs?.map((item) => (

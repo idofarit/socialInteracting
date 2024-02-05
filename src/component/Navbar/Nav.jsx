@@ -21,7 +21,7 @@ const Nav = ({ user }) => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  const name = user?.displayName.split(" ");
+  const name = user?.displayName?.split(" ");
   for (let i = 0; i < name?.length; i++) {
     var dpName = name[0];
     break;
@@ -102,7 +102,7 @@ const Nav = ({ user }) => {
                   alt="userLogo"
                 />
                 <div>
-                  <strong>&nbsp;Welcome&nbsp;</strong>
+                  <strong className="px-2">&nbsp;Welcome&nbsp;</strong>
                   <span>{dpName}</span>
                 </div>
               </div>

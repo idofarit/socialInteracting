@@ -218,7 +218,9 @@ const Home = ({ setActive, user, active }) => {
               </div>
               <div className="hero-tag">
                 <span>use these tags for search</span>
-                <Tags tags={tags} />
+                <div>
+                  <Tags tags={tags.slice(0, 5).map((e) => e)} />
+                </div>
                 <div className="opacity-layer"></div>
               </div>
             </div>

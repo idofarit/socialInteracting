@@ -20,8 +20,13 @@ const CommentBox = ({ userId, userComment, setUserComment, handleComment }) => {
       </form>
       {!userId ? (
         <>
-          <h5>Please Login or SignUp to comment here</h5>
-          <button className="btn btn-success" onClick={() => navigate("/auth")}>
+          <span className="cmnt-span">
+            Please Login or SignUp to comment here &nbsp;
+          </span>
+          <button
+            className="btn btn-success mt-3"
+            onClick={() => navigate("/auth")}
+          >
             Click to Login/SignUp
           </button>
         </>

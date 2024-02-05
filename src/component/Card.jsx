@@ -17,8 +17,12 @@ const Card = ({ title, description, imgUrl, id, likes, comments }) => {
               <span className="text-primary">Read more</span>
             </Link>
             <div>
-              <i className="bi bi-hand-thumbs-up m-2">&nbsp;{likes.length}</i>
-              <i className="bi bi-chat-left m-2">&nbsp;{comments.length}</i>
+              <i className="bi bi-hand-thumbs-up m-2 thumb-icon">
+                &nbsp;{likes.length}
+              </i>
+              <i className="bi bi-chat-left m-2 cmnt-icon">
+                &nbsp;{comments.length}
+              </i>
             </div>
           </div>
         </div>

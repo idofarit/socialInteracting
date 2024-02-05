@@ -3,6 +3,11 @@
     @content;
   }
 }
+@mixin sm1 {
+  @media only screen and (max-width: 400px) {
+    @content;
+  }
+}
 @mixin xsm {
   @media only screen and (max-width: 380px) {
     @content;

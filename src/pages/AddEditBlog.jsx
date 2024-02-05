@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ReactTagInput from "@pathofdev/react-tag-input";
-import "@pathofdev/react-tag-input/build/index.css";
+// import "@pathofdev/react-tag-input/build/index.css";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { db, storage, useFirebase } from "../Firebase";
 import { useNavigate, useParams } from "react-router-dom";

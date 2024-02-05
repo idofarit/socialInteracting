@@ -222,6 +222,10 @@ $yellow: #f5bc04;
 
 //   Blog Section
 
+.text-start {
+  color: var(--white);
+}
+
 .blog-heading {
   font-size: 24px;
   color: var(--white);
@@ -473,12 +477,12 @@ $yellow: #f5bc04;
   position: relative;
   justify-content: center;
   align-items: center;
-  height: 27.5rem;
+  height: 31.5rem;
   background: #222222;
   border-radius: 10px;
   box-shadow: 0 -19px 19px 2px rgba(252, 252, 252, 0.1);
   @include xsm {
-    height: 29rem;
+    height: 34.5rem;
   }
 }
 
@@ -487,10 +491,14 @@ $yellow: #f5bc04;
   width: 50vw;
   height: 17rem;
   left: 20%;
-  top: 10rem;
+  top: 14rem;
   @include md {
+    width: 65vw;
+    left: 15.5%;
+  }
+  @include sm1 {
     width: 70vw;
-    left: 12%;
+    left: 14.5%;
   }
   @include xsm {
     width: 80vw;
@@ -788,13 +796,25 @@ $yellow: #f5bc04;
 .related-content {
   border-radius: 20px;
   cursor: pointer;
+  background-color: #383636;
+}
+
+.thumb-icon {
+  color: var(--white);
+}
+.cmnt-icon {
+  color: var(--white);
 }
 
 // Comment
 
+.cmnt-span {
+  color: var(--white);
+}
+
 .custombox {
   position: relative;
-  padding: 3rem 2rem;
+  padding: 1.2rem;
   border: 1px dashed #dadada;
   margin-top: 20px;
 }
@@ -849,12 +869,12 @@ $yellow: #f5bc04;
 
 .small-title {
   background: #edeff2 none repeat scroll 0 0;
-  font-size: 16px;
+  font-size: 13px;
   font-weight: 700;
   left: 5%;
   line-height: 1;
   margin: 0;
-  padding: 0.6rem 1.5rem;
+  padding: 0.45rem 1.5rem;
   position: absolute;
   text-align: center;
   top: -18px;
@@ -867,6 +887,10 @@ $yellow: #f5bc04;
   width: 50px;
   margin: auto;
   display: flex;
+  @include md {
+    height: 25px;
+    width: 25px;
+  }
 }
 .user_name {
   font-size: 16px;

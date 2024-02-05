@@ -226,10 +226,6 @@ const Home = ({ setActive, user, active }) => {
             </div>
           </div>
 
-          {/* Modal start */}
-
-          {/* Modal ends */}
-
           <div className="col-md-9">
             <div className="blog-heading text-start py-2 mb-4">Daily Blogs</div>
 
@@ -264,42 +260,6 @@ const Home = ({ setActive, user, active }) => {
           <div className="col-md-3">
             <Trending trendBlogs={trendBlogs} />
             <FeatureBlogs title={"Most popular"} blogs={mostPopularBlogs} />
-          </div>
-
-          {/* <div className="col-md-9 ">
-            <div className="blog-heading text-start py-2 mb-4">Daily Blogs</div>
-
-            {blogs.length === 0 && location.pathname !== "/" && (
-              <>
-                <h4>
-                  No blogs matched your search keyword:{" "}
-                  <strong>{searchQuery}</strong>
-                </h4>
-              </>
-            )}
-
-            {blogs?.map((blog) => (
-              <BlogSection
-                key={blog.id}
-                {...blog}
-                user={user}
-                handleDelete={handleDelete}
-              />
-            ))}
-
-            {!isContentEmpty && (
-              <button
-                className="btn btn-primary m-auto d-flex"
-                onClick={fetchMore}
-              >
-                Load more
-              </button>
-            )}
-          </div> */}
-          <div className="col-md-3 ">
-            {/* <Search search={search} handleChange={handleChange} />
-            <Tags tags={tags} /> */}
-            {/* <FeatureBlogs title={"Most popular"} blogs={mostPopularBlogs} /> */}
           </div>
         </div>
       </div>

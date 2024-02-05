@@ -1,14 +1,13 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
-import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
-import { createContext, useContext, useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { getAuth } from "firebase/auth";
+import { createContext, useContext } from "react";
 
 const FirebaseContext = createContext(null);
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDhnern7ty9lVE8hn3OSXOIZlMPGWW4a1I",
+  apiKey: import.meta.env.VITE_REACT_APP_API_KEY,
   authDomain: "blog-interacting.firebaseapp.com",
   projectId: "blog-interacting",
   storageBucket: "blog-interacting.appspot.com",
@@ -25,21 +24,6 @@ export const db = getFirestore(app);
 export const storage = getStorage(app);
 
 export const FirebaseProvider = (props) => {
-  // user active check
-  // const [user, setUser] = useState(null);
-
-  // useEffect(() => {
-  //   auth.onAuthStateChanged((user) => {
-  //     if (user) {
-  //       setUser(user);
-  //     } else {
-  //       setUser(null);
-  //     }
-  //     // console.log("user", user);
-  //   });
-  // }, []);
-  // user active check end
-
   const handleDelete = async (id) => {
     try {
       setLoading(true);

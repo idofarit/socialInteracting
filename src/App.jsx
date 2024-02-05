@@ -1,6 +1,6 @@
 import "./App.css";
 import "./mediaQueries.css";
-import { Route, RouterProvider, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import Error from "./pages/Error";
 import Details from "./pages/Details";
